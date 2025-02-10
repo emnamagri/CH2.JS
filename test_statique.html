@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercices de Test Statique et Spécifications Contradictoires</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background: linear-gradient(to right, rgb(103, 6, 6), black);
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        header nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        header nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+        header nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+        }
+        header nav ul li a:hover {
+            text-decoration: underline;
+        }
+        main {
+            padding: 20px;
+            margin: 20px auto;
+            max-width: 900px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+        pre {
+            background-color: #f4f4f4;
+            padding: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        section {
+            margin-bottom: 40px;
+        }
+        footer {
+            background: linear-gradient(to right, rgb(103, 6, 6), black);
+            color: white;
+            text-align: center;
+            padding: 10px;
+            margin-top: 40px;
+        }
+        .nav-buttons {
+            margin: 20px 0;
+            text-align: center;
+        }
+        .nav-buttons a {
+            text-decoration: none;
+            color: white;
+            background-color: #333;
+            padding: 10px 20px;
+            border-radius: 5px;
+            margin: 0 10px;
+            transition: background-color 0.3s;
+        }
+        .nav-buttons a:hover {
+            background-color: #f44336;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Exercices de Test Statique et Spécifications Contradictoires</h1>
+    <nav>
+        <ul>
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="correction.html">Correction</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+    <section>
+        <h2>Exercice 1 : Test Statique sur un Code Java</h2>
+        <p><strong>Objectif :</strong> Analysez le code ci-dessous et identifiez les mauvaises pratiques, les incohérences et proposez des améliorations.</p>
+        <pre>
+public class Calcule {
+    public int compute(int a, int b){
+        int result;
+        if(a == b){
+            result = a + b;
+        } else if(a > b){
+            result = a - b;
+        } else{
+            result = a * b;
+        }
+        return result;
+    }
+    public static void main(String[] args){
+        Calcule c = new Calcule();
+        System.out.println(c.compute(10, 5));
+    }
+}
+        </pre>
+        <p><strong>Questions :</strong></p>
+        <ul>
+            <li>Quels problèmes identifiez-vous dans le code ci-dessus ?</li>
+            <li>Comment pourriez-vous améliorer la lisibilité et la clarté de ce code ?</li>
+            <li>Proposez un code corrigé qui suit les bonnes pratiques.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Exercice 2 : Spécifications Contradictoires</h2>
+        <p><strong>Objectif :</strong> Analysez les spécifications et identifiez les contradictions entre elles.</p>
+        <pre>
+Spécification 1 : Le virement bancaire doit être effectué uniquement si le solde du compte de l'utilisateur est suffisant.
+Spécification 2 : Un utilisateur peut effectuer un virement même si le solde est insuffisant, à condition qu'il soit en découvert autorisé.
+Spécification 3 : Lors d'un virement, l'utilisateur ne doit pas dépasser une limite de 5000€ par transaction.
+Spécification 4 : Si le solde de l'utilisateur est insuffisant, le système doit rejeter le virement et informer l'utilisateur.
+Spécification 5 : Si le solde de l'utilisateur est insuffisant, mais qu'il est en découvert autorisé, le virement doit être autorisé.
+        </pre>
+        <p><strong>Questions :</strong></p>
+        <ul>
+            <li>Quelles spécifications sont contradictoires ?</li>
+            <li>Proposez des solutions pour résoudre ces contradictions.</li>
+            <li>Reformulez les spécifications de manière cohérente.</li>
+        </ul>
+    </section>
+
+    <!-- Boutons de navigation -->
+    <div class="nav-buttons">
+        <a href="test_statique.html">Exercice Test Statique</a>
+        <a href="test_dynamique.html">Exercice Test Dynamique</a>
+    </div>
+</main>
+
+<footer>
+    <p>&copy; 2025 Exemple d'exercices | Test Statique et Spécifications Contradictoires</p>
+</footer>
+
+</body>
+</html>

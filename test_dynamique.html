@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemple de Test Dynamique</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <img src="logo.png" alt="Logo" class="logo">
+        <nav>
+            <ul>
+                <li><a href="index.html">Test Statique</a></li>
+                <li><a href="test_dynamique.html">Test Dynamique</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h1>Exemple de Test Dynamique</h1>
+            <p>
+                Un test dynamique implique l'exécution du code pour vérifier son comportement en temps réel. Un exemple courant est le test unitaire, où l'on vérifie qu'une fonction retourne bien le résultat attendu.
+            </p>
+            <p>Exemple de test dynamique : Tester une fonction qui additionne deux nombres.</p>
+            <button onclick="testSomme()">Tester la somme</button>
+            <p id="result"></p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Mon Projet | Test Statique et Dynamique</p>
+    </footer>
+
+    <script>
+        function testSomme() {
+            let a = 2;
+            let b = 3;
+            let somme = a + b;
+            document.getElementById('result').innerText = "La somme de " + a + " et " + b + " est : " + somme;
+        }
+    </script>
+</body>
+</html>

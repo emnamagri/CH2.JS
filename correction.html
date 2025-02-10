@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Corrections des Exercices</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background: linear-gradient(to right, rgb(103, 6, 6), black);
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        main {
+            padding: 20px;
+            margin: 20px auto;
+            max-width: 900px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+        pre {
+            background-color: #f4f4f4;
+            padding: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        section {
+            margin-bottom: 40px;
+        }
+        footer {
+            background: linear-gradient(to right, rgb(103, 6, 6), black);
+            color: white;
+            text-align: center;
+            padding: 10px;
+            margin-top: 40px;
+        }
+        .nav-buttons {
+            margin: 20px 0;
+            text-align: center;
+        }
+        .nav-buttons a {
+            text-decoration: none;
+            color: white;
+            background-color: #333;
+            padding: 10px 20px;
+            border-radius: 5px;
+            margin: 0 10px;
+            transition: background-color 0.3s;
+        }
+        .nav-buttons a:hover {
+            background-color: #f44336;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Corrections des Exercices</h1>
+</header>
+
+<main>
+    <!-- Navigation Buttons -->
+    <div class="nav-buttons">
+        <a href="test_statique.html">Test Statique</a>
+        <a href="test_dynamique.html">Test Dynamique</a>
+    </div>
+
+    <section>
+        <h2>Exercice 1 : Test Statique sur un Code Java</h2>
+        <p><strong>Objectif :</strong> Analyser le code ci-dessous et identifier les mauvaises pratiques, les incohérences et proposer des améliorations.</p>
+        <h3>Code à analyser :</h3>
+        <pre>
+public class Calcule {
+    //définition d'une fonction compute
+    public int compute (int a, int b){
+        int result;
+        if(a == b){
+            result = a + b;
+        } else if(a > b){
+            result = a - b;
+        } else{
+            result = a * b;
+        }
+        return result;
+    }
+    public static void main(String[] args){
+        Calcule c = new Calcule();
+        System.out.println(c.compute(10, 5));
+    }
+}
+        </pre>
+
+        <h3>Analyse et corrections :</h3>
+        <p><strong>Problèmes identifiés :</strong></p>
+        <ul>
+            <li>Le nom de la méthode <code>compute</code> est trop vague. Il ne décrit pas clairement ce que fait la méthode (addition, soustraction, ou multiplication).</li>
+            <li>La variable <code>result</code> pourrait être mieux nommée pour refléter son rôle plus clairement (par exemple, <code>calculResult</code>).</li>
+            <li>La structure conditionnelle est un peu lourde. Le code pourrait être amélioré en utilisant une logique plus simple ou des instructions conditionnelles plus claires.</li>
+            <li>Le nom de la classe <code>Calcule</code> pourrait être amélioré pour refléter le rôle de cette classe (par exemple, <code>Calculatrice</code>).</li>
+        </ul>
+
+        <h3>Code amelioré :</h3>
+        <pre>
+public class Calculatrice {
+
+    // Renommage de la fonction pour plus de clarté
+    public int calculerResultat(int a, int b) {
+
+        int calculResult;
+
+        // Simplification des conditions et meilleure lisibilité
+        if (a > b) {
+            calculResult = a + b; // Somme si a est supérieur à b
+        } else if (b > a) {
+            calculResult = a - b; // Soustraction si b est supérieur à a
+        } else {
+            calculResult = a * b; // Multiplication si a est égal à b
+        }
+
+        return calculResult;
+    }
+
+    public static void main(String[] args) {
+        Calculatrice calculatrice = new Calculatrice();
+        System.out.println(calculatrice.calculerResultat(10, 5));
+    }
+}
+        </pre>
+        <p><strong>Améliorations :</strong></p>
+        <ul>
+            <li>Renommage de la méthode <code>compute</code> en <code>calculerResultat</code> pour plus de clarté.</li>
+           
+            <li>Renommage de la variable <code>result</code> en <code>calculResult</code> pour mieux refléter sa fonction.</li>
+            
+            <li>Le code est plus lisible, la logique est maintenant claire, et les noms des méthodes et variables sont plus explicites.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Exercice 2 :Analyse des Spécifications </h2>
+        <p><strong>Objectif :</strong> Analyser les spécifications et identifier les défauts statiques.</p>
+        <h3>Spécifications à analyser :</h3>
+        <pre>
+Spécification 1 : Le virement bancaire doit être effectué uniquement si le solde du compte de l'utilisateur est suffisant.
+Spécification 2 : Un utilisateur peut effectuer un virement même si le solde est insuffisant, à condition qu'il soit en découvert autorisé.
+Spécification 3 : Lors d'un virement, l'utilisateur ne doit pas dépasser une limite de 5000€ par transaction.
+Spécification 4 : Si le solde de l'utilisateur est insuffisant, le système doit rejeter le virement et informer l'utilisateur.
+Spécification 5 : Si le solde de l'utilisateur est insuffisant, mais qu'il est en découvert autorisé, le virement doit être autorisé.
+        </pre>
+
+        <h3>Analyse et corrections :</h3>
+        <p><strong>Contradictions identifiées :</strong></p>
+        <ul>
+            <li>Les spécifications 1 et 4 semblent contradictoires avec la spécification 5 : la spécification 1 dit que le virement doit être effectué uniquement si le solde est suffisant, mais la spécification 5 permet d'effectuer un virement même si le solde est insuffisant, à condition que l'utilisateur soit en découvert autorisé.</li>
+            <li>Les spécifications 4 et 5 sont également contradictoires : la spécification 4 indique que le virement doit être rejeté si le solde est insuffisant, tandis que la spécification 5 permet de le faire si l'utilisateur est en découvert autorisé.</li>
+        </ul>
+
+        <h3>Correction des spécifications :</h3>
+        <pre>
+Spécification 1 : Le virement bancaire doit être effectué uniquement si le solde du compte de l'utilisateur est suffisant, à moins que l'utilisateur soit en découvert autorisé.
+Spécification 2 : Un utilisateur peut effectuer un virement même si le solde est insuffisant, à condition qu'il soit en découvert autorisé et que le montant du virement ne dépasse pas la limite de 5000€.
+Spécification 3 : Lors d'un virement, l'utilisateur ne doit pas dépasser une limite de 5000€ par transaction.
+Spécification 4 : Si le solde de l'utilisateur est insuffisant et qu'il n'est pas en découvert autorisé, le virement doit être rejeté et l'utilisateur informé.
+Spécification 5 : Si le solde de l'utilisateur est insuffisant, mais qu'il est en découvert autorisé, le virement peut être effectué, sous réserve que la limite de 5000€ par transaction soit respectée.
+        </pre>
+
+        <h3>Explications des corrections :</h3>
+        <ul>
+            <li>Les spécifications ont été reformulées pour être plus cohérentes. La condition du découvert autorisé a été clarifiée.</li>
+            <li>La spécification 2 a été modifiée pour spécifier que l'utilisateur peut faire un virement même avec un solde insuffisant, mais uniquement s'il est en découvert autorisé et sous la limite de 5000€.</li>
+            <li>Les autres spécifications sont restées similaires, mais elles ont été précisées pour éviter les contradictions internes.</li>
+        </ul>
+    </section>
+</main>
+
+<footer>
+    <p>&copy; 2025 Emna Magri</p>
+</footer>
+
+</body>
+</html>
